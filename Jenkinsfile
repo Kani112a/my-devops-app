@@ -8,11 +8,11 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                sh 'docker build -t my-devops-app .'
-            }
-        }
+       stage('Build Docker Image') {
+    steps {
+        sh 'sudo docker build -t my-devops-app .'
+    }
+}
 
         stage('Push to Docker Hub') {
             steps {
