@@ -1,0 +1,264 @@
+After development
+development-->release-->Development
+operation
+no downtime
+handle huge traffic multiple request
+--->OS
+Communication between development and operation is DevOps
+
+Waterfall----requirements-development-testing-operation
+
+
+developed for Customer Relationship Management (CRM) systems, Human Resource Management Systems (HRMS), 
+
+ADV:
+simple and easy to understand and use explicitly declared
+Dis adv:
+Cannot accept the changes in requirements during development.
+Testing part takes more time 
+
+
+EX:
+Microsoft-->used waterfall model to develop Oracle
+
+
+Agile:
+speed of development, testing and deployment cycles
+immediate feedback
+fast development and deployment process
+scrum and Kanban ?
+CI/CD  continuous integration and Continuous Delivery  more efficient
+
+
+
+Implement
+|
+Test
+|
+Build
+|
+Deploy
+|
+Maintain 
+
+GIT:
+it is a version control tool
+To share the code between developers etc.., 
+Merge the changes automatically
+
+public and private repositories
+
+
+
+GIT repositories:
+GitHub, Gitlab etc...,
+
+
+
+
+
+commands:
+to create new one
+git. Add----add new file
+git status ----status of git repository
+gti commit----commit changes
+git log -----history of changes
+git push------pushed to local repository
+clear
+
+push old one to remote repo:
+git remote add origin https://gitlab.com/practice3261516/test-project.git----remote repository connection
+git push --set-upstream origin master------Brach connection
+rm-rf .git ----master node to normal node in prompt 
+
+
+After installation of git:
+git --version  ----> to know the version
+git clone (URL)  ----> projects http URL----->connect without username and password URL method is used
+clear  ----->just clears the text in the prompt
+ssh-keygen
+
+
+
+https://gitlab.com/-/user_settings ----add ssh (mine)
+GitLab.com ----GitLab url
+https://youtu.be/Vmt0V6a3ppE?si=Q6WuqOz5Yf0BXm1A   ---git setup video link
+https://git-scm.com/downloads/win  ---->git install link
+
+
+
+
+
+To speed up a code we are using DevOps
+Agile is one of the methodology to deploy/develop a project----the flow
+Version control system ----the changes were stored and maintained by the metadata  we can track them with the revised numberde4r
+types of vcs:
+local vcs ----- for single person usage (only one is going to create a project)
+centralized vcs ----for multiple person usage (multiple person with the common server)---easy to merge the code
+distributed vcs  -----every one have local vcs and all of them were connected to remote server ----multiple copy of repository
+
+
+VCS Tool:
+Git ---distributed vcs open source code
+compatible for all OS
+
+
+
+Work flow :
+Working Directory-----working changes reflected here  ---after the git add command the file enters into the staging area
+staging area-----to commit the changes  ----git commit command it will save into the local repository
+local repository---committed  --- git push --- pushed to remote repository
+working directory--staging area---local repository--remote repository
+if we need in reverse order:
+git fetch/pull from remote to local repository
+git checkout or git merge from local to working area
+
+
+Getlink:  https://git-scm.com/downloads
+
+git config --global user.name "KANI"
+git config --global user. Email "kani@gmail.com"
+
+  
+--global it is not required for local vcs 
+
+
+cd source--- source is one of the project in our repo
+ls ---list
+pwd ---path folder
+
+create new thing mkdir name  ---assign some name
+in ls we will get that name
+cd name ---name given in mkdir what we created
+to come out from the folder cd ~
+git in it folder name ---to initialize the project
+touch filename ----create file inside the folder
+ll -lrt to see all the files
+ls -a 
+ls is used to show the file names
+ll -lrt is used to show the date, size permission with filename
+vim file1 -----to add something inn file1
+esc---> :wq ---> enter
+after doing the changes give git add file1
+git commit
+git push
+rm -rf .git ----> to get out from a git repository
+
+
+creating a branches and working with the multiple developer can easy to merge the code without breaking the main branch
+
+now i created a branch in GitLab
+
+how will i access in git?
+cd <project name>
+git branch ---> to view the available branch
+git pull -->branch name will visible
+git checkout <branch name>
+now directory will be changed
+To create new branch :
+git checkout -b <branch name>
+
+to change the directory use git checkout main--->to main branch  same method for branches too
+
+git push --set-upstream origin feature/dashboard-changes   ---->changes made by a branch that is pushed
+
+in master branch for ci/cd pipeline
+
+delete the branch go to master
+ git pull
+git branch -d branch name  ---> now deleted
+
+
+if two person or more than two were using the same branch while git push it shows an error to avoid that use rebase git pull -r and see the history git log we can get to know the changes and now push the changes
+
+to commit the changes we used to give some keywords to understand
+git commit -m "keywords ......"
+ 
+
+
+Merge conflicts:
+if the changes were made in a same line we want to change that manually
+after this then check the status using git status then do git rebase --continue and push it
+
+add .Git ignore file 
+to avoid the files that need not be shown in the GitLab/GitHub
+inside the Git ignore file type like 
+filename1/* --> name of the file
+filename2/*
+
+to stop tracking for a file use:
+git rm -r --cached <filename>
+
+stashing:
+if i am doing some changes in one branch without committing that i am redirecting to some other directory it throws an error 
+use git stash to store the changes somewhere 
+to get back those changes use git stash pop
+
+commit history:
+every commit has a unique hash
+git checkout <commithashcode> -->to get the old changes
+
+locally i did some commit but i want to revert it back
+git reset --hard HEAD~1  ---> number denotes how many commit from last to revert, head denotes last committed one
+
+
+undoing and changing commit:
+git commit -amend ---> we can get the last commit to edit
+
+if it is pushed to remote repository but i want to revert it:
+git push --force
+git reset <commithashcode> -->to remove old commit
+
+if it is in master branch
+git revert <commithashid>  __> create new commit to remove old commit
+
+to merge the code:
+check the status of the master branch git pull is upto date or not
+i am going to merge everything from master to some other directory --keep this directory in git and give command like
+git merge master
+check history and git pull
+
+
+
+keyvalues database --everything is identified using keyvalue very fast but limited storage,no joins,schema less---> organized in a row format ex:redis, Kubernetes app used:twitter, snapchat  best for cache
+
+
+wide column database:cassandra , apache hbase , handling large amount of unstructured data,no joins,schema less
+
+document database:mongo db,dynamo db, couch db---> faster to read,schema less --> organized in document format
+used for:mobile apps , game apps,cms
+
+relational database:
+MySQL, postgres
+most used
+schema required
+stored in table format
+normalized to avoid duplicates
+ACID
+
+graph database
+ex:youtube
+neo4j,dgrapg
+nodes and edges
+best for graphs and patterns
+
+search databases
+text search
+elastic search,solr
+ex:google
+
+Build and package manager tool:
+code needs to be be deployed in a production server, converting all the related files for a project into single file---> called as artifact
+
+the artifact file format may differ depends on the programming language
+for java it is saved/stored as jar or war file --->jar  java archive
+
+
+installation tools
+java,
+maven (xml) or gradle (groovy) ---> build tool
+node and npm 
+IntelliJ --> platform to execute the code
+in IntelliJ .pom file add configuration and in terminal mvn install
+
+Settings > Appearance & Behavior > System Settings > Data Sharing
